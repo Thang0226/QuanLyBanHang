@@ -42,10 +42,11 @@ where cID not in
 	(select cID from orders);
     
 select * from orders;
-select o.oID, o.oDate, od.odQTY * p.pPrice as oTotalPrice
+select o.oID, o.oDate, sum(od.odQTY * p.pPrice) as oTotalPrice
 from orders o
 join orderDetail od on o.oID = od.oID
-join product p on od.pID = p.pID;
+join product p on od.pID = p.pID
+group by o.oID;
 
 
 
