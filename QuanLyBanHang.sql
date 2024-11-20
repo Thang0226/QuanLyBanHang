@@ -34,3 +34,5 @@ CREATE TABLE OrderDetail (
     FOREIGN KEY (pID)
         REFERENCES Product (pID)
 );
+
+select * from Product;
